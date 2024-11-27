@@ -187,7 +187,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 - Author: Haneul
-- Project Link: [https://github.com/yourusername/FloppyWeb](https://github.com/ohaneul/FloppyWeb)
+- Project Link: [https://github.com/ohaneul/FloppyWeb](https://github.com/ohaneul/FloppyWeb)
 
 ## Acknowledgments
 - React team for the amazing framework
