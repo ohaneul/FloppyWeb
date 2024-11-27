@@ -27,26 +27,7 @@
     "webpack-dev-server": "^4.15.0",
     "ts-loader": "^9.4.0",
     "css-loader": "^6.8.1",
-    "style-loader": "^3.3.3"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom"
-    ]
+    "style-loader": "^3.3.3",
+    "identity-obj-proxy": "^3.0.0"
   }
 } 
