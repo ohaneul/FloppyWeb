@@ -16,15 +16,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-          
+      
       - name: Install dependencies
-        run: |
-          if [ ! -f package-lock.json ]; then
-            npm install
-          else
-            npm ci
-          fi
+        run: npm install
         
       - name: Run tests
         run: npm test
@@ -39,18 +33,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
           
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v11
           
       - name: Install dependencies
-        run: |
-          if [ ! -f package-lock.json ]; then
-            npm install
-          else
-            npm ci
-          fi
+        run: npm install
         
       - name: Build
         run: npm run build
