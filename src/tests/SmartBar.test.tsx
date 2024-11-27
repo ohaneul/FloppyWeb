@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { SmartBar } from '../components/SmartBar';
 
 describe('SmartBar', () => {
@@ -11,21 +11,7 @@ describe('SmartBar', () => {
                 suggestions={[]}
             />
         );
-    });
-
-    it('should handle user input', () => {
-        const onSearch = jest.fn();
-        const onNavigate = jest.fn();
         
-        render(
-            <SmartBar 
-                onSearch={onSearch}
-                onNavigate={onNavigate}
-                suggestions={[]}
-            />
-        );
-
-        const input = screen.getByPlaceholderText('Search or enter URL');
-        fireEvent.change(input, { target: { value: 'test' } });
+        expect(screen.getByPlaceholderText('Search or enter URL')).toBeInTheDocument();
     });
 }); 

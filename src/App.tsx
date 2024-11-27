@@ -1,21 +1,22 @@
 import React from 'react';
-import { BrowserWindow } from './UI/components/BrowserWindow';
-import { SettingsManager } from './UI/services/SettingsManager';
+import { SmartBar } from './components/SmartBar';
 
 export const App: React.FC = () => {
-    const [settingsManager] = React.useState(() => new SettingsManager());
+    const handleSearch = async (query: string) => {
+        console.log('Searching:', query);
+    };
 
-    React.useEffect(() => {
-        // Apply theme from settings
-        document.documentElement.setAttribute(
-            'data-theme',
-            settingsManager.getSetting('theme')
-        );
-    }, []);
+    const handleNavigate = async (url: string) => {
+        console.log('Navigating to:', url);
+    };
 
     return (
-        <div className="app-container">
-            <BrowserWindow />
+        <div className="app">
+            <SmartBar
+                onSearch={handleSearch}
+                onNavigate={handleNavigate}
+                suggestions={[]}
+            />
         </div>
     );
 }; 
