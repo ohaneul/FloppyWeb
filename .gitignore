@@ -1,0 +1,31 @@
+# Build outputs
+/dist
+/target
+/build
+/node_modules
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Cache
+.cache/
+.npm/
+.cargo/
+
+# Testing
+/coverage
+
+# OS files
+.DS_Store
+Thumbs.db 

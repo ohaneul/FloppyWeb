@@ -1,21 +1,33 @@
-cmake_minimum_required(VERSION 3.10)
-project(FloppyWeb)
+cmake_minimum_required(VERSION 3.15)
+project(FloppyWeb VERSION 0.1.0)
 
+# Enable testing
+include(CTest)
+enable_testing()
+
+# Find required packages
+find_package(Rust REQUIRED)
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+find_package(Go REQUIRED)
+
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# WebAssembly build configuration
-if(EMSCRIPTEN)
-    set(CMAKE_EXECUTABLE_SUFFIX ".js")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s WASM=1")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap']")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s ALLOW_MEMORY_GROWTH=1")
-endif()
+# Add subdirectories
+add_subdirectory(src/Core)
+add_subdirectory(src/Security)
+add_subdirectory(src/Media)
 
-# Add source files
-add_executable(floppy
-    src/native/url_parser.cpp
-    src/native/history_manager.cpp
-    src/native/search_engine.cpp
-    src/native/bindings.cpp
-) 
+# Configure WASM build
+set(WASM_TARGET_TRIPLE "wasm32-unknown-unknown")
+set(WASM_BUILD_DIR ${CMAKE_BINARY_DIR}/wasm)
+
+# Configure Rust build
+set(RUST_TARGET_DIR ${CMAKE_BINARY_DIR}/rust)
+set(CARGO_BUILD_TARGET_DIR ${RUST_TARGET_DIR})
+
+# Configure output directories
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+ 

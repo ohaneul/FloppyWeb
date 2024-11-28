@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "core",
+    "security",
+    "media",
+    "network"
+]
+resolver = "2" 
